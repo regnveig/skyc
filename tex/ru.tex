@@ -1,0 +1,72 @@
+\documentclass[a4paper,10pt]{book}
+\usepackage{polyglossia} 
+\setdefaultlanguage[babelshorthands=true]{russian}
+\setotherlanguage{english}
+\defaultfontfeatures{Ligatures=TeX,Mapping=tex-text}
+
+\usepackage{amsmath}
+\setmainfont{Linux Libertine}
+
+\usepackage{xltxtra}
+\usepackage{microtype}
+
+\usepackage{xcolor}
+\definecolor{darkblue}{HTML}{003153}
+\usepackage{graphicx}
+\usepackage {textcomp}
+\usepackage[twoside,left=2.5cm,right=3cm,top=3cm,bottom=4cm,bindingoffset=0cm]{geometry}
+\usepackage{epigraph}
+\renewcommand{\epigraphsize}{\footnotesize}
+\epigraphrule=0pt
+\epigraphwidth=8cm
+\usepackage{soul, xspace}
+\xspaceaddexceptions{ < ) }
+\sodef\so{}{.1em}{1em}{.3em plus.05em minus.05em}
+\newcommand{\ldotst}{\so{...}\xspace}
+\newcommand{\ldotsq}{\so{?\hbox{\hspace{-.212em}}..}\xspace}
+\newcommand{\ldotse}{\so{!..}\xspace}
+\newcommand{\razd}{~\\{\centering\Large\bfseries$\ast \ast \ast$\par}~\\}
+\newcommand{\spacing}{\textcolor{red}{\textbf{(разрыв)}}}
+\newcommand{\authornote}{\emph{"--- Прим. авт.}}
+
+\renewcommand{\texttt}[1]{\text}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{}
+\makeatletter
+\newlength\episourceskip
+\pretocmd{\@episource}{\em}{}{}
+\apptocmd{\@episource}{\em}{}{}
+\patchcmd{\epigraph}{\@episource{#1}\\}{\@episource{#1}\\[\episourceskip]}{}{}
+\makeatother
+
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, linkcolor=darkblue, citecolor=darkblue, filecolor=darkblue, urlcolor=darkblue}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{{\small
+НЕБЕСНЫЕ СКАЛЫ
+}}
+\fancyhead[RE]{{\small
+ЭМИЛЬ ХЕЛЬГАСОН
+}} 
+\fancyfoot{}
+\fancypagestyle{plain}
+{
+\fancyhead{}
+\renewcommand{\headrulewidth}{0mm}
+\fancyfoot{}
+}
+\fancypagestyle{requisit}
+{
+\fancyhead{}
+\renewcommand{\headrulewidth}{0mm}
+}
+
+\begin{document}
+
+\input{full_text.tex}
+
+\end{document}
